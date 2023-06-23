@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PlantList</string>
+    <string name="plant_cactus">Cactus</string>
+    <string name="plant_cactus_desc">Cactus are a desert plant that require minimal watering since the leaves themselves will store water, pointy too</string>
+
+    <string name="plant_succulent">Succulent</string>
+    <string name="plant_succulent_desc">Succulents are a desert plant that require minimal watering since the leaves store water, though are less pointy</string>
+</resources>
