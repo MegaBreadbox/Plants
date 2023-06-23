@@ -2,9 +2,11 @@ package com.example.plantlist
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,7 +21,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.plantlist.model.DataSource
 import com.example.plantlist.model.PlantItem
 import com.example.plantlist.ui.theme.PlantListTheme
@@ -41,7 +42,10 @@ fun PlantCard (
            modifier.padding(dimensionResource(R.dimen.large_padding))
         ){
             Text(
-                text = stringResource(plantItem.plantNameId)
+                text = stringResource(plantItem.plantNameId),
+                style = MaterialTheme.typography.displaySmall,
+                modifier = modifier
+                        .padding(bottom = dimensionResource(R.dimen.small_padding))
             )
             Image(
                 painter = painterResource(plantItem.plantImageId),
@@ -50,9 +54,25 @@ fun PlantCard (
             )
             if(isExpanded){
                 Text(
-                    text = stringResource(plantItem.plantDesId)
+                    text = stringResource(plantItem.plantDesId),
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = modifier
+                            .padding(top = dimensionResource(R.dimen.small_padding))
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun PlantColumn(
+    plantList: DataSource
+){
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.small_padding))
+    ){
+        items(plantList.plants){
+            PlantCard(it)
         }
     }
 }

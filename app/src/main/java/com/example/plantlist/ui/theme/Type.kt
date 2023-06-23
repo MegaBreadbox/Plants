@@ -2,19 +2,36 @@ package com.example.plantlist.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.plantlist.R
+
+val quickSandBold = FontFamily(
+    Font(R.font.quicksand_bold)
+)
+
+val quicksandReg = FontFamily(
+    Font(R.font.quicksand_regular)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = quicksandReg,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
+    ),
+
+    displaySmall = TextStyle(
+        fontFamily = quickSandBold,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
     )
+
     /* Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,
